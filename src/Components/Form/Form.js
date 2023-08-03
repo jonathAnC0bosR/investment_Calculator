@@ -9,7 +9,7 @@ const initialUserInput = {
   'duration': 10
 }
 
-export default function Form() {
+export default function Form(props) {
 
   const [userInput, setUserInput] = useState(initialUserInput)
 
@@ -22,8 +22,9 @@ export default function Form() {
     });
   };
 
-  const submitForm = () => {
-
+  const submitForm = (e) => {
+    e.preventDefault();
+    props.onCalculate(userInput)
   }
 
   const resetForm = () => {
